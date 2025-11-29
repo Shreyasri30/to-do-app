@@ -1,135 +1,185 @@
-React To-Do List Application (Vite + React)
+To-Do App (React + Vite)
 
-This project is a simple and functional To-Do List application built using React and Vite.
-The application demonstrates core React concepts such as components, props, state management, event handling, conditional rendering, and list rendering.
+A simple, modular To-Do List application built using React with Vite.
+The app allows users to add tasks, edit existing tasks, delete tasks, and mark tasks as completed.
+It follows a clean component structure and demonstrates core React fundamentals such as state management, props, event handling, list rendering, and controlled components.
 
-Repository Link
+Repository: https://github.com/Shreyasri30/to-do-app
 
-GitHub Repository:
-https://github.com/Shreyasri30/to-do-app
+1. Features
+Core Task Management
 
-1. Project Structure
+Add New Task
+
+Users can enter text and add a to-do item.
+
+Prevents empty submissions.
+
+Edit Task
+
+Tasks can be edited in-place.
+
+Includes Save and Cancel operations.
+
+Delete Task
+
+Removes a selected task from the list.
+
+Mark Task as Completed
+
+A checkbox toggles the completed state.
+
+Completed tasks show a visual change.
+
+UI / UX
+
+Custom neon-themed UI built with pure CSS.
+
+Responsive layout suitable for small screens.
+
+Clean task cards with update and delete controls.
+
+Error-free interaction flow.
+
+2. Component Structure
+
+The project is divided into reusable components inside the src folder.
+
 src/
-  App.jsx
-  main.jsx
-  components/
-    Header.jsx
-    ToDoList.jsx
-    ToDoItem.jsx
-  styles/
-    App.css
+├─ components/
+│  ├─ Header.jsx
+│  ├─ ToDoItem.jsx
+│  └─ ToDoList.jsx
+├─ styles/
+│  └─ App.css
+├─ App.jsx
+├─ main.jsx
 
-2. Features
-2.1 Add Tasks
+Component Breakdown
 
-Users can create new tasks using an input field and an Add button.
+Header.jsx
 
-2.2 Edit Tasks
+Displays the title and subtitle of the app.
 
-Existing tasks can be edited using an Edit button and updated with Save or Cancel options.
+Purely presentational.
 
-2.3 Delete Tasks
+ToDoList.jsx
 
-Tasks can be removed from the list permanently.
+Receives the list of todos via props.
 
-2.4 Mark as Completed
+Maps each todo to a ToDoItem component.
 
-A checkbox allows the user to mark any task as completed. Completed tasks visually change style.
+Displays a fallback message when the list is empty.
 
-2.5 React State Management
+ToDoItem.jsx
 
-All task operations update the UI instantly using the useState hook.
+Represents a single to-do entry.
 
-2.6 Props and Component Communication
+Manages editing mode using internal state.
 
-Functions such as add, edit, delete, and toggle complete are passed from parent to child components using props.
+Handles edit, save, cancel, delete, and complete operations.
 
-2.7 List Rendering
+App.jsx
 
-Tasks are rendered using the map() function with unique keys.
+Acts as the main container.
 
-2.8 Custom Styling
+Handles global state using useState.
 
-The project uses a neon-themed UI created entirely using CSS inside App.css.
+Implements all task-related logic.
 
-3. Component Overview
-3.1 App.jsx
+Passes data and functions to child components.
 
-Holds the global state (todos).
+3. State Management
 
-Contains logic for adding, deleting, editing, and toggling tasks.
+State is handled using React’s useState hook.
 
-Passes all relevant data and functions to child components via props.
+Global State in App.jsx:
 
-3.2 Header.jsx
+todos → Array of task objects ({ id, text, completed })
 
-Displays the application title and subtitle.
+newTodo → Input field text
 
-Contains no state or logic.
+Event Handlers Implemented:
 
-3.3 ToDoList.jsx
+handleAddTodo
 
-Receives the todo list from App.jsx via props.
+handleEditTodo
 
-Renders each task using the ToDoItem component.
+handleDeleteTodo
 
-Shows a fallback message when the list is empty.
+handleToggleTodo
 
-3.4 ToDoItem.jsx
+These handlers are passed as props to child components for interaction.
 
-Represents a single task row.
+4. List Rendering & Keys
 
-Handles editing mode, save/cancel flow, and delete action.
+Tasks are rendered using .map() inside ToDoList.jsx.
 
-Uses local state to manage temporary edited text.
+Each task uses a unique id (generated using timestamp) for React keys.
 
-4. Installation and Setup
+Ensures stable rendering and efficient updating.
+
+5. Styling
+
+All styling is handled in:
+
+src/styles/App.css
+
+
+Includes:
+
+Main container styling
+
+Responsive layout
+
+Button and input styling
+
+Completed task visual indicators
+
+Neon color theme with contrast for readability
+
+6. Installation & Setup
 Step 1: Install dependencies
 npm install
 
-Step 2: Start the development server
+Step 2: Run the development server
 npm run dev
 
-Step 3: Open in browser
+Step 3: Open the application
+http://localhost:5173
 
-Launch the URL shown in the terminal (typically http://localhost:5173).
+7. Tech Stack
 
-5. Technologies Used
+React 18
 
-React (Functional Components and Hooks)
-
-Vite (Development server and bundler)
+Vite
 
 JavaScript (ES6+)
 
 CSS3
 
-6. Usage Instructions
+No external UI libraries used — styling is custom-built.
 
-Type a task into the input field.
+8. Purpose of the Project
 
-Press Add to create a new task.
-
-Check the checkbox to mark as completed.
-
-Press Edit to modify a task.
-
-Press Save or Cancel to exit editing mode.
-
-Press Delete to remove a task.
-
-7. Purpose of the Project
-
-This project is built as part of the Internshala Full Stack Developer program (Module 3 – React) to demonstrate understanding of:
+This project was built as part of the Internshala Full Stack Developer Program (Module 3 – React).
+It demonstrates:
 
 Component-based architecture
 
+Controlled components
+
 State and props
 
-Event handling
+Event delegation
 
-UI styling and layout
+Structured folder organization
 
-Clean folder structure
+Clean and modular coding practice
 
 Git versioning with multiple meaningful commits
+
+9. Repository
+
+GitHub Repository:
+https://github.com/Shreyasri30/to-do-app
